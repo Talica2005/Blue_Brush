@@ -1,7 +1,8 @@
 const Router = require("express");
 const router = new Router();
+const techniqController = require("../controllers/techniqController");
 
-router.post("/"); //create techniq
-router.get("/"); // get techniq
+router.post("/", techniqController.create);
+router.get("/", techniqController.getAll);
 
 module.exports = router;

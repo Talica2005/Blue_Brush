@@ -19,8 +19,8 @@ const CartArtwork = sequelize.define("cart_artwork", {
 const Artwork = sequelize.define("artwork", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }, //describe the fields of this model
   name: { type: DataTypes.STRING, unique: true, allowNull: false },
-  price: { type: DataTypes.INTEGER },
-  img: { type: DataTypes.STRING },
+  price: { type: DataTypes.INTEGER, allowNull: false },
+  img: { type: DataTypes.STRING, allowNull: false },
 });
 
 const Techniq = sequelize.define("techniq", {
@@ -59,7 +59,7 @@ Artwork.belongsTo(Genre);
 Artwork.hasMany(CartArtwork);
 CartArtwork.belongsTo(Artwork);
 
-Artwork.hasMany(ArtworkInfo);
+Artwork.hasMany(ArtworkInfo, { as: "info" });
 ArtworkInfo.belongsTo(Artwork);
 
 //type of relationship between techniq and the genre.Many to many
