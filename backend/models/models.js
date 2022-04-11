@@ -5,7 +5,7 @@ const User = sequelize.define("user", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }, //describe the fields of this model
   email: { type: DataTypes.STRING, unique: true },
   password: { type: DataTypes.STRING },
-  role: { type: DataTypes.STRING, defaultValu: "USER" },
+  role: { type: DataTypes.STRING, defaultValue: "USER" },
 });
 
 const Cart = sequelize.define("cart", {
