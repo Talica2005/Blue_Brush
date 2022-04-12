@@ -26,16 +26,26 @@ class UserController {
     return res.json({ token });
   }
 
-  async login(req, res) {}
+  async login(req, res, next) {
+    const { email, password } = req.body;
+    const user = await User.findOne({ where: { email } });
+    //check user
+    if (!user) {
+      return next(errorApi.internal("User not found"));
+    }
+    let comparePassword = bcrypt.compareSync(password, user.password); //compare passwords
+    if (!comparePassword) {
+      return next(errorApi.internal("Incorrect password"));
+    }
+    const token = generateJwt(user.id, user.email, user.role);
+    return res.json({ token });
+  }
 
   async check(req, res, next) {
     //the logic of issuing the database to the client
     // get query string parameters
-    const { id } = req.query;
-    if (!id) {
-      return next(errorApi.badRequest("No ID"));
-    }
-    res.json(id);
+    const token = generateJwt(req.user.id, req.user.email, req.user.role);
+    return res.json({ token });
   }
 }
 
