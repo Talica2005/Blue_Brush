@@ -1,9 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { createContext } from "react";
+import * as ReactDOMClient from "react-dom/client";
 import App from "./App";
+import UserStore from "./store/UserStore";
 
-ReactDOM.render(
-  <App />,
+export const Context = createContext(null);
 
-  document.getElementById("root")
+const root = ReactDOMClient.createRoot(document.getElementById("root"));
+root.render(
+  <Context.Provider
+    value={{
+      user: new UserStore(),
+    }}
+  >
+    <App />
+  </Context.Provider>
 );
