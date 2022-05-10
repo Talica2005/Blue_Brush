@@ -1,5 +1,10 @@
 import React from "react";
+import { MiniNavBar } from "../components/MiniNavBar/MiniNavBar";
 
 export const Gallery = () => {
-  return <div>Gallery</div>;
+  return (
+    <div>
+      <MiniNavBar />
+    </div>
+  );
 };

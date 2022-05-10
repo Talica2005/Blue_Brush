@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Fuggles&display=swap");
+
+.home-text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: absolute;
+  top: 15%;
+  left: 14%;
+}
+
+.about {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+}
+.about .image-about {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+}
+
+.about-text {
+  font-weight: 600;
+}
+
+.content-about {
+  padding: 15px 40px 15px 40px;
+}
+
+.row {
+  margin-bottom: 40px;
+  background-color: #f0f8ff;
+}
+
+div.col-md-7.col-sm-12,
+div.col-md-5.col-sm-12 {
+  padding: 0;
+}
+
+.hi {
+  font-family: "Fuggles", cursive;
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.button-view {
+  text-align: center;
+  margin: 30px 0 20px 0;
+}
+
+.signature {
+  float: right;
+  font-family: "Fuggles", cursive;
+  font-size: 40px;
+  padding: 0 20px 0 0;
+}
+.content-home {
+  display: flex;
+}
+
+@media screen and (max-width: 992px) {
+  .about .image-about {
+    max-height: 310px;
+  }
+  .content-about {
+    padding: 10px 20px 10px 20px;
+  }
+  .about-text {
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .hi {
+    font-size: 30px;
+    margin-top: 5px;
+  }
+  .signature {
+    font-size: 30px;
+    padding: 0 10px 0 0;
+  }
+  .about .image-about {
+    max-height: 420px;
+  }
+  .row {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about .image-about {
+    max-height: 300px;
+  }
+  .content-about {
+    padding: 10px 20px 10px 20px;
+  }
+  .about-text {
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .hi {
+    font-size: 30px;
+    margin-top: 5px;
+  }
+  .signature {
+    font-size: 30px;
+    padding: 0 10px 0 0;
+  }
+  .about .image-about {
+    max-height: 420px;
+  }
+  .row {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .about .image-about {
+    max-height: 220px;
+  }
+  .row {
+    margin-bottom: 15px;
+  }
+}
