@@ -1,6 +1,6 @@
 import React from "react";
 import sunnyday from "./386499266.jpg";
-import { Card, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "./home.css";
 
 export const Home = () => {

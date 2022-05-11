@@ -1,18 +1,18 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import "./mininavbar.css";
 
 export const MiniNavBar = () => {
   return (
     <div>
-      <Navbar>
-        <Container className="mininavbar">
+      <Navbar className="mininavbar">
+        <div className="ccontainer">
           <Nav className="mininavbar-nav">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="#home">WATERCOLOR</Nav.Link>
+            <Nav.Link href="#features">ACRILYC</Nav.Link>
+            <Nav.Link href="#pricing">OIL</Nav.Link>
           </Nav>
-        </Container>
+        </div>
       </Navbar>
     </div>
   );

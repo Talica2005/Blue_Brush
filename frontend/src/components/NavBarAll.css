@@ -54,10 +54,10 @@
   text-decoration: none;
 }
 
-.linknav a:hover,
-.linknav a:active,
-.linknav a.active {
-  color: #2681d6 !important;
+.linknav1 a.nav-link:hover,
+.linknav1 a.nav-link:active,
+.linknav1 a.nav-link:focus {
+  color: #5f8eb8 !important;
 }
 
 @media (max-width: 667px) {
