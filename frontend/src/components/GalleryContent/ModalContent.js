@@ -22,7 +22,7 @@ const Modal = ({
         </div>
         <img src={clickedImg} alt="bigger pic" />
         <span className="dismiss" onClick={handleClick}>
-          <GrClose className="dismiss" onClick={handleClick} />
+          {/* <GrClose className="dismiss" onClick={handleClick} /> */}X
         </span>
         <div onClick={handelRotationLeft} className="overlay-arrows_left">
           <div>

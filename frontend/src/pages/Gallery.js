@@ -11,7 +11,6 @@ export const Gallery = () => {
       <div className="all-images">All works</div>
       <PaginationPages />
       <GalleryContent />
-      <PaginationPages />
     </div>
   );
 };

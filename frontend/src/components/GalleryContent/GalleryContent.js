@@ -52,7 +52,6 @@ export default function GalleryContent() {
       <div className="gallery">
         {photos.photos.map((item, index) => (
           <div key={index} className="pics">
-            <h2>{item.text}</h2>
             <img
               src={item.link}
               alt={item.text}
