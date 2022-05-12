@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 export default class UserStore {
   //constructor is called when an object of this class is created
   constructor() {
-    this._isAuth = false;
+    this._isAuth = true;
     this._user = {};
     // makeAutoObservable monitors changes in variables
     makeAutoObservable(this);
