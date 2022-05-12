@@ -17,14 +17,14 @@ export const Auth = () => {
         <Form className="d-flex flex-column">
           <Form.Control className="mt-4" placeholder="Email" />
           <Form.Control className="mt-3" placeholder="Password" />
-
           <Button variant={"success"} className="mt-3">
             {isLogin ? "Login" : "Registration"}
           </Button>
 
           {isLogin ? (
             <div className="mt-2">
-              No account?<NavLink to={REGISTRATION_ROUTE}> Registraion</NavLink>
+              No account?
+              <NavLink to={REGISTRATION_ROUTE}> Registration</NavLink>
             </div>
           ) : (
             <div className="mt-2">
