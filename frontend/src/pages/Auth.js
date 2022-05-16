@@ -58,11 +58,11 @@ export const Auth = observer(() => {
             {isLogin ? (
               <div className="mt-2">
                 No account?
-                <NavLink to={REGISTRATION_ROUTE}> Registration</NavLink>
+                <NavLink to={REGISTRATION_ROUTE}>Registration</NavLink>
               </div>
             ) : (
               <div className="mt-2">
-                Have an account?<NavLink to={LOGIN_ROUTE}> Login</NavLink>
+                Have an account?<NavLink to={LOGIN_ROUTE}>Login</NavLink>
               </div>
             )}
           </div>

@@ -12,9 +12,12 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(cors());
+//app.use("*", cors());
 app.use(express.json()); //json format
 app.use(express.static(path.resolve(__dirname, "static")));
 app.use(fileUpload({}));
+// app.use(express.static("./static/"));
+// app.use(fileUpload());
 app.use("/api", router);
 
 //error handling latest middleware

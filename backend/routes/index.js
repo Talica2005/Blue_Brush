@@ -6,8 +6,8 @@ const techniqRouter = require("./techniqRouter");
 const genreRouter = require("./genreRouter");
 
 router.use("/user", userRouter); // /user URL by which the router is processed
-router.use("/artwork", artworkRouter);
 router.use("/techniq", techniqRouter);
 router.use("/genre", genreRouter);
+router.use("/artwork", artworkRouter);
 
 module.exports = router; //export router

@@ -3,13 +3,15 @@ import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 import { BsFillShareFill, BsCartPlusFill } from "react-icons/bs";
 import { fetchOneArtwork } from "../http/artworkAPI";
 import { useParams } from "react-router-dom";
+import "./artwork.css";
 
 export const Artwork = () => {
   const [artwork, setArtwork] = useState({ info: [] });
   const { id } = useParams();
+
   useEffect(() => {
     fetchOneArtwork(id).then((data) => setArtwork(data));
-  }, [artwork, id]);
+  }, []);
 
   // const artwork = {
   //   id: 7,
@@ -34,7 +36,10 @@ export const Artwork = () => {
   return (
     <Container className="mt-3">
       <Row>
-        <Col md={8} className="d-flex flex-column align-items-center p-3">
+        <Col
+          md={8}
+          className="artwork d-flex flex-column align-items-center p-3"
+        >
           <Image
             width={350}
             height={450}
@@ -46,7 +51,7 @@ export const Artwork = () => {
             }}
           />
         </Col>
-        <Col md={4} style={{ width: 300 }}>
+        <Col md={4}>
           <Row className="d-flex flex-column align-items-center p-3">
             <div className="mt-2 mb-2 d-flex justify-content-between">
               <h4 style={{ fontSize: 25, fontWeight: 600, color: "#5F8EB8" }}>
@@ -73,23 +78,13 @@ export const Artwork = () => {
           </div>
 
           <Row className="d-flex flex-column  p-3">
-            <h6>Deatails:</h6>
-            {artwork.info.map((info, index) => (
-              <Row key={info.id}>
-                {info.title}: {info.description}
-              </Row>
-              // <Row key={info.id}>
-              //   <div>
-              //     Techniq: <b>{info.techniq}</b>
-              //   </div>
-              //   <div>
-              //     Size: <b>{info.size}</b>
-              //   </div>
-              //   <div>
-              //     Care instructions: <b>{info.instruction}</b>
-              //   </div>
-              // </Row>
-            ))}
+            <Row>
+              {artwork.info.map((info, index) => (
+                <div key={info.id}>
+                  {info.title}: <b>{info.description}</b>
+                </div>
+              ))}
+            </Row>
           </Row>
         </Col>
       </Row>

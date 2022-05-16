@@ -17,7 +17,7 @@ const CartArtwork = sequelize.define("cart_artwork", {
 });
 
 const Artwork = sequelize.define("artwork", {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }, //describe the fields of this model
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: { type: DataTypes.STRING, unique: true, allowNull: false },
   price: { type: DataTypes.INTEGER, allowNull: false },
   img: { type: DataTypes.STRING, allowNull: false },

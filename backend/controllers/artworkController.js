@@ -13,8 +13,8 @@ class ArtworkController {
       const artwork = await Artwork.create({
         name,
         price,
-        genreId,
         techniqId,
+        genreId,
         img: fileName,
       });
 
@@ -36,7 +36,7 @@ class ArtworkController {
   }
 
   async getAll(req, res) {
-    let { genreId, techniqId, limit, page } = req.query;
+    let { techniqId, genreId, limit, page } = req.query;
     page = page || 1;
     limit = limit || 9;
     let offset = page * limit - limit;
@@ -75,6 +75,7 @@ class ArtworkController {
       where: { id },
       include: [{ model: ArtworkInfo, as: "info" }],
     });
+
     return res.json(artwork);
   }
 }

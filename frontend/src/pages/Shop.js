@@ -23,7 +23,7 @@ export const Shop = observer(() => {
       artwork.setArtworks(data.rows);
       artwork.setTotalCount(data.count);
     });
-  }, [artwork]);
+  }, []);
 
   //change pages
   useEffect(() => {
@@ -36,7 +36,7 @@ export const Shop = observer(() => {
       artwork.setArtworks(data.rows);
       artwork.setTotalCount(data.count);
     });
-  }, [artwork.page, artwork.selectedTechniq, artwork.selectedGenre, artwork]);
+  }, [artwork.page, artwork.selectedTechniq, artwork.selectedGenre]);
 
   return (
     <div>

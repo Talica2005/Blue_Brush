@@ -1,5 +1,4 @@
 import "./gallery_content.css";
-import { GrClose } from "react-icons/gr";
 
 const Modal = ({
   clickedImg,
