@@ -31,7 +31,7 @@ export const Shop = observer(() => {
       artwork.selectedTechniq.id,
       artwork.selectedGenre.id,
       artwork.page,
-      2
+      10
     ).then((data) => {
       artwork.setArtworks(data.rows);
       artwork.setTotalCount(data.count);
@@ -45,11 +45,11 @@ export const Shop = observer(() => {
         <a href="/shop">All works</a>
       </div>
       <Container>
-        <Row className="mt-5">
-          <Col md={3}>
+        <Row className="mt-3">
+          <Col md={2} className="mt-3">
             <GenreNavBar />
           </Col>
-          <Col md={9}>
+          <Col md={10}>
             <ArtworkList />
             <PaginationPages />
           </Col>

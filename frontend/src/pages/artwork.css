@@ -2,6 +2,27 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 100%;
-  height: auto;
+  width: auto;
+  max-height: 400px;
+}
+
+@media screen and (max-width: 992px) {
+  .artwork img {
+    height: 270px;
+  }
+  .info {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .artwork img {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .artwork img {
+    height: 200px;
+  }
 }

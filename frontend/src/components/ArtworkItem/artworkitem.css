@@ -1,0 +1,18 @@
+.images {
+  width: 100%;
+  height: 200px;
+  margin: 0;
+}
+
+.images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artwork-name {
+  color: rgb(118, 118, 118);
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+}

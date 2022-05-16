@@ -4,9 +4,14 @@ import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import { BiLogInCircle, BiCart } from "react-icons/bi";
 import blue from "./blue.png";
 import "./NavBarAll.css";
-import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
+import {
+  ADMIN_ROUTE,
+  CART_ROUTE,
+  LOGIN_ROUTE,
+  SHOP_ROUTE,
+} from "../utils/consts";
 import { observer } from "mobx-react-lite";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 export const NavBarAll = observer(() => {
   const { user } = useContext(Context);
@@ -25,7 +30,7 @@ export const NavBarAll = observer(() => {
           <Nav className="ml-auto" style={{ color: "white", paddingRight: 15 }}>
             <Button
               variant={"outline-dark"}
-              onClick={() => navigate("/admin")}
+              onClick={() => navigate(ADMIN_ROUTE)}
               className="ml-auto"
               style={{ marginRight: 15 }}
             >
@@ -41,14 +46,17 @@ export const NavBarAll = observer(() => {
           </Nav>
         ) : (
           <Nav>
-            <Button variant={"outline-dark"} onClick={() => navigate("/login")}>
-              Authorization
+            <Button
+              variant={"outline-dark"}
+              onClick={() => navigate(LOGIN_ROUTE)}
+            >
+              Login
             </Button>
           </Nav>
         )}
-        <a href="#login">
+        <NavLink to={CART_ROUTE}>
           <BiCart size={25} />
-        </a>
+        </NavLink>
         <a href="#login">
           <BiLogInCircle size={25} />
         </a>

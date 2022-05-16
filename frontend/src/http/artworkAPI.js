@@ -25,7 +25,7 @@ export const createArtwork = async (artwork) => {
   return data;
 };
 
-export const fetchArtworks = async (techniqId, genreId, page, limit = 9) => {
+export const fetchArtworks = async (techniqId, genreId, page, limit = 8) => {
   const { data } = await $host.get("api/artwork", {
     params: {
       techniqId,

@@ -34,60 +34,65 @@ export const Artwork = () => {
   // };
 
   return (
-    <Container className="mt-3">
+    <>
       <Row>
-        <Col
-          md={8}
-          className="artwork d-flex flex-column align-items-center p-3"
-        >
-          <Image
-            width={350}
-            height={450}
-            src={process.env.REACT_APP_API_URL + artwork.img}
-            alt="images"
-            style={{
-              border: "2px solid lightgray",
-              padding: "10px",
-            }}
-          />
-        </Col>
-        <Col md={4}>
-          <Row className="d-flex flex-column align-items-center p-3">
-            <div className="mt-2 mb-2 d-flex justify-content-between">
-              <h4 style={{ fontSize: 25, fontWeight: 600, color: "#5F8EB8" }}>
-                {artwork.name}
-              </h4>
-              <div>
-                <BsFillShareFill
-                  style={{ fontSize: 20, fontWeight: 600, color: "grey" }}
-                />
-              </div>
-            </div>
-            <div style={{ fontSize: 14, fontWeight: 600 }}>
-              {artwork.price} SEK
-            </div>
-          </Row>
-
-          <div className="d-flex flex-column mt-5 p-3">
-            <Card>
-              <Button variant={"secondary"}>
-                Add to cart
-                <BsCartPlusFill size={20} style={{ marginLeft: 15 }} />
-              </Button>
-            </Card>
-          </div>
-
-          <Row className="d-flex flex-column  p-3">
-            <Row>
-              {artwork.info.map((info, index) => (
-                <div key={info.id}>
-                  {info.title}: <b>{info.description}</b>
-                </div>
-              ))}
-            </Row>
-          </Row>
-        </Col>
+        <div className="all-images">
+          <a href="/shop">Shop {"/ " + artwork.name}</a>
+        </div>
       </Row>
-    </Container>
+      <Container className="mt-3">
+        <Row>
+          <Col
+            md={7}
+            className="artwork d-flex flex-column align-items-center p-3"
+          >
+            <Image
+              src={process.env.REACT_APP_API_URL + artwork.img}
+              alt="images"
+              style={{
+                border: "2px solid lightgray",
+                padding: "10px",
+              }}
+            />
+          </Col>
+          <Col md={5} className="info">
+            <Row className="d-flex flex-column align-items-center p-3">
+              <div className="mt-2 mb-2 d-flex justify-content-between">
+                <h4 style={{ fontSize: 25, fontWeight: 600, color: "#5F8EB8" }}>
+                  {artwork.name}
+                </h4>
+                <div>
+                  <BsFillShareFill
+                    style={{ fontSize: 20, fontWeight: 600, color: "grey" }}
+                  />
+                </div>
+              </div>
+              <div style={{ fontSize: 14, fontWeight: 600 }}>
+                {artwork.price} SEK
+              </div>
+            </Row>
+
+            <div className="d-flex flex-column mt-5 p-3">
+              <Card>
+                <Button variant={"secondary"}>
+                  Add to cart
+                  <BsCartPlusFill size={20} style={{ marginLeft: 15 }} />
+                </Button>
+              </Card>
+            </div>
+
+            <Row className="d-flex flex-column  p-3">
+              <Row>
+                {artwork.info.map((info, index) => (
+                  <div key={info.id}>
+                    {info.title}: <b>{info.description}</b>
+                  </div>
+                ))}
+              </Row>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
