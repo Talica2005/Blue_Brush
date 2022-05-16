@@ -15,7 +15,11 @@ export const ArtworkItem = ({ artwork }) => {
         className="mt-5"
       >
         <div className="mt-2 mb-2">{artwork.name}</div>
-        <Image width={210} height={210} src={artwork.img} />
+        <Image
+          width={210}
+          height={210}
+          src={process.env.REACT_APP_API_URL + artwork.img}
+        />
         <div className="mt-1 mb-2 d-flex justify-content-between align-items-center">
           <div>
             <div>{artwork.price} kr</div>

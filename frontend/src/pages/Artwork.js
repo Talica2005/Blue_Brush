@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 import { BsFillShareFill, BsCartPlusFill } from "react-icons/bs";
+import { fetchOneArtwork } from "../http/artworkAPI";
+import { useParams } from "react-router-dom";
 
 export const Artwork = () => {
-  const artwork = {
-    id: 7,
-    name: "Sunny day",
-    price: 25000,
-    img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
-  };
+  const [artwork, setArtwork] = useState({ info: [] });
+  const { id } = useParams();
+  useEffect(() => {
+    fetchOneArtwork(id).then((data) => setArtwork(data));
+  }, [artwork, id]);
+
+  // const artwork = {
+  //   id: 7,
+  //   name: "Sunny day",
+  //   price: 25000,
+  //   img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
+  // };
 
   // const info = [
   //   { id: 1, instruction: "Wash, dry", size: "30 x 40 cm" },
@@ -16,12 +24,12 @@ export const Artwork = () => {
   //   { id: 3, instruction: "Wash,fffffffffffff dry", size: "40 x 30 cm" },
   // ];
 
-  const info = {
-    id: 1,
-    techniq: "Watercolor",
-    instruction: "Wash, dry",
-    size: "30 x 40 cm",
-  };
+  // const info = {
+  //   id: 1,
+  //   techniq: "Watercolor",
+  //   instruction: "Wash, dry",
+  //   size: "30 x 40 cm",
+  // };
 
   return (
     <Container className="mt-3">
@@ -30,7 +38,8 @@ export const Artwork = () => {
           <Image
             width={350}
             height={450}
-            src={artwork.img}
+            src={process.env.REACT_APP_API_URL + artwork.img}
+            alt="images"
             style={{
               border: "2px solid lightgray",
               padding: "10px",
@@ -64,17 +73,23 @@ export const Artwork = () => {
           </div>
 
           <Row className="d-flex flex-column  p-3">
-            <Row>
-              <div>
-                Techniq: <b>{info.techniq}</b>
-              </div>
-              <div>
-                Size: <b>{info.size}</b>
-              </div>
-              <div>
-                Care instructions: <b>{info.instruction}</b>
-              </div>
-            </Row>
+            <h6>Deatails:</h6>
+            {artwork.info.map((info, index) => (
+              <Row key={info.id}>
+                {info.title}: {info.description}
+              </Row>
+              // <Row key={info.id}>
+              //   <div>
+              //     Techniq: <b>{info.techniq}</b>
+              //   </div>
+              //   <div>
+              //     Size: <b>{info.size}</b>
+              //   </div>
+              //   <div>
+              //     Care instructions: <b>{info.instruction}</b>
+              //   </div>
+              // </Row>
+            ))}
           </Row>
         </Col>
       </Row>

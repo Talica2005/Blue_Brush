@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { observer } from "mobx-react-lite";
-import { Context } from "../..";
+import { Context } from "../../index";
 
 import "./mininavbar.css";
 

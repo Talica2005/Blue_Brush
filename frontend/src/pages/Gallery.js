@@ -8,7 +8,9 @@ export const Gallery = () => {
   return (
     <div>
       <MiniNavBar />
-      <div className="all-images">All works</div>
+      <div className="all-images">
+        <a href="/gallery">All works</a>
+      </div>
       <PaginationPages />
       <GalleryContent />
     </div>

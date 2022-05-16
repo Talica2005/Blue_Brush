@@ -1,5 +1,9 @@
 .all-images {
   margin-top: 20px;
   margin-left: 50px;
+}
+
+.all-images a {
+  text-decoration: none;
   color: grey;
 }

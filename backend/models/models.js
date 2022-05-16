@@ -35,9 +35,8 @@ const Genre = sequelize.define("genre", {
 
 const ArtworkInfo = sequelize.define("artwork_info", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }, //describe the fields of this model
-  techniq: { type: DataTypes.STRING, allowNull: false },
-  instruction: { type: DataTypes.STRING, allowNull: false },
-  size: { type: DataTypes.STRING, allowNull: false },
+  title: { type: DataTypes.STRING, allowNull: false },
+  description: { type: DataTypes.STRING, allowNull: false },
 });
 
 const TechniqGenre = sequelize.define("techniq_genre", {

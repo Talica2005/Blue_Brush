@@ -6,29 +6,28 @@ const errorApi = require("../error/error_api");
 class ArtworkController {
   async create(req, res, next) {
     try {
-      const { name, price, techniqId, genreId, info } = req.body;
+      let { name, price, techniqId, genreId, info } = req.body;
       const { img } = req.files;
       let fileName = uuid.v4() + ".jpg";
       img.mv(path.resolve(__dirname, "..", "static", fileName));
+      const artwork = await Artwork.create({
+        name,
+        price,
+        genreId,
+        techniqId,
+        img: fileName,
+      });
 
       if (info) {
         info = JSON.parse(info);
         info.forEach((i) =>
           ArtworkInfo.create({
-            instruction: i.instruction,
-            size: i.size,
+            title: i.title,
+            description: i.description,
             artworkId: artwork.id,
           })
         );
       }
-
-      const artwork = await Artwork.create({
-        name,
-        price,
-        techniqId,
-        genreId,
-        img: fileName,
-      });
 
       return res.json(artwork);
     } catch (e) {
@@ -37,7 +36,7 @@ class ArtworkController {
   }
 
   async getAll(req, res) {
-    const { genreId, techniqId, limit, page } = req.query;
+    let { genreId, techniqId, limit, page } = req.query;
     page = page || 1;
     limit = limit || 9;
     let offset = page * limit - limit;
@@ -66,6 +65,7 @@ class ArtworkController {
         offset,
       });
     }
+
     return res.json(artworks);
   }
 

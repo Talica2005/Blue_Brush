@@ -3,72 +3,14 @@ import { makeAutoObservable } from "mobx";
 export default class ArtworkStore {
   //constructor is called when an object of this class is created
   constructor() {
-    this._artworks = [
-      {
-        id: 1,
-        name: "Sunny day",
-        price: 25000,
-        img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
-      },
-      {
-        id: 2,
-        name: "August",
-        price: 25000,
-        img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
-      },
-      {
-        id: 3,
-        name: "Sunny day",
-        price: 25000,
-        img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
-      },
-      {
-        id: 4,
-        name: "August",
-        price: 25000,
-        img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
-      },
-      {
-        id: 5,
-        name: "Sunny day",
-        price: 25000,
-        img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
-      },
-      {
-        id: 6,
-        name: "August",
-        price: 25000,
-        img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
-      },
-      {
-        id: 7,
-        name: "Sunny day",
-        price: 25000,
-        img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
-      },
-      {
-        id: 8,
-        name: "August",
-        price: 25000,
-        img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKQ_-pD8oaKkIH8P-F1OMkettXx3Wnqy8WpIxRLB16gCLhkqUM",
-      },
-    ];
-    this._techniques = [
-      { id: 1, name: "WATERCOLOR" },
-      { id: 2, name: "OIL" },
-      { id: 3, name: "ACRILYC" },
-      { id: 4, name: "PASTEL" },
-    ];
-    this._genres = [
-      { id: 1, name: "Cityscape" },
-      { id: 2, name: "Landscape" },
-      { id: 3, name: "Portrait" },
-      { id: 4, name: "Naturmort" },
-      { id: 5, name: "Marine" },
-    ];
-
+    this._artworks = [];
+    this._techniques = [];
+    this._genres = [];
     this._selectedGenre = {};
     this._selectedTechniq = {};
+    this._page = 1;
+    this._totalCount = 0;
+    this._limit = 9;
 
     // makeAutoObservable monitors changes in variables
     makeAutoObservable(this);
@@ -84,11 +26,20 @@ export default class ArtworkStore {
   }
 
   setSelectedGenre(genre) {
+    this.setPage(1); //first page by using genre
     this._selectedGenre = genre;
   }
 
   setSelectedTechniq(techniq) {
+    this.setPage(1);
     this._selectedTechniq = techniq;
+  }
+
+  setPage(page) {
+    this._page = page;
+  }
+  setTotalCount(count) {
+    this._totalCount = count;
   }
 
   get techniques() {
@@ -106,5 +57,14 @@ export default class ArtworkStore {
   }
   get selectedTechniq() {
     return this._selectedTechniq;
+  }
+  get totalCount() {
+    return this._totalCount;
+  }
+  get page() {
+    return this._page;
+  }
+  get limit() {
+    return this._limit;
   }
 }

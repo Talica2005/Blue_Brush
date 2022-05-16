@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ListGroup } from "react-bootstrap";
 import { observer } from "mobx-react-lite";
-import { Context } from "..";
+import { Context } from "../index";
 
 export const GenreNavBar = observer(() => {
   const { artwork } = useContext(Context);
